@@ -21,7 +21,14 @@ module PS2Decoder(input logic [10:0] data,
 
     always_ff @ (*)
       begin
-        case(data)
+        case(data[9:1])
+          00011100: frequency = C4;
+          00100011: frequency = D4;
+          00100100: frequency = E4;
+          00101011: frequency = F4;
+          00110100: frequency = G4;
+          00011100: frequency = A4;
+          00110010: frequency = B4;
           default: frequency = 9'b000000000;
         endcase
       end
